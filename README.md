@@ -160,7 +160,7 @@ $(document).ready(function(){
 </tbody>
 </table>
 
-<b>Sample code basic video and dash streaming</b>
+<b>Sample code basic video and dash streaming</b><br/>
 <b>normal video</b>
 <pre>
 $(document).ready(function(){
