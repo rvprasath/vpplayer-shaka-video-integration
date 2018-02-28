@@ -75,7 +75,7 @@ $("#player").vpplayer({
 });
 });
 </pre>
-<hr/>
+<h2></h2>
 
 video player
 <pre>
@@ -85,7 +85,7 @@ $("#player").vpplayer({
 });
 });
 </pre>
-<hr/>
+<h2></h2>
 
 <b>Sample code with all parameters</b>
 <pre>
@@ -104,7 +104,7 @@ $(document).ready(function(){
 });
 });
 </pre>
-<hr/>
+<h2></h2>
 
 <b>parameters value definition</b>
 
@@ -161,7 +161,7 @@ $(document).ready(function(){
 </table>
 
 <b>Sample code basic video and dash streaming</b><br/>
-<b>normal video</b>
+<b>Normal video</b>
 <pre>
 $(document).ready(function(){
 	$("#player").vpplayer({
