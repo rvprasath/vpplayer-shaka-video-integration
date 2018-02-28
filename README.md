@@ -174,7 +174,7 @@ $(document).ready(function(){
 });
 });
 </pre>
-<hr/>
+<h2></h2>
 
 <b>Dash streaming with shaka integration</b>
 <pre>
