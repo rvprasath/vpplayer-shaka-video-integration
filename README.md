@@ -146,7 +146,7 @@ $(document).ready(function(){
 </tr>
 <tr>
   <td><b>manifestUrl</b></td>
-  <td><b>[{"1080":"./video/sample_1080.mpd"},{"720":"./video/sample_720.mpd"}]</b>This is array of object. This parameter object key should match with quality parameter and its size, to enable change quality options.</td>
+  <td><b>[{"1080":"./video/sample_1080.mpd"},{"720":"./video/sample_720.mpd"}]</b>This is array of object. This parameter object key should match with quality parameter and its size, to enable change quality options. <b>Note : </b>Dash streaming supports mpd files and it requires transcoding of video files into chunks.</td>
 </tr>
 <tr>
   <td><b>shakaBufferingGoal</b></td>
