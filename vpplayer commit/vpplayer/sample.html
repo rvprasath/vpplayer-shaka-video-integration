@@ -13,12 +13,15 @@
 <script>
 $(document).ready(function(){
 		$("#player").vpplayer({
-		src: "./audio/audio.mp3",
+		/*----------Audio player parameters----------*/	
+		/*src: "./audio/audio.mp3",
 		trackName: "sample audio",
+		playerType: "audio",*/
+		/*----------Video player parameters------------*/	
 		playerType: "video",
 		autoPlay: false,
 		poster: "./image/middle.png",
-		/*streamingType: "SHAKA-PLAYER/DASH",*/
+		streamingType: "SHAKA-PLAYER/DASH",
 		url : "./video/sample.mp4",
 		quality: ["1080","720","420"],
 		playBackSpeed: ["1.5","1.25","1","0.75","0.5"],
