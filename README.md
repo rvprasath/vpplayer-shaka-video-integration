@@ -7,9 +7,9 @@ Jquery Audio and video player plugin with shaka dash streaming integration.
 get jquery library from <a href="https://jquery.com/download/">https://jquery.com/download/</a>
 
 <b>Shaka player library</b><br/>
-optional if integrating dash streaming<br/>
+optional if integrating dash streaming.<br/>
 get shakaplayer library from <a href="https://cdnjs.com/libraries/shaka-player">https://cdnjs.com/libraries/shaka-player</a><br/>
-thanks for google shaka player
+Thanks for google shaka player.
 
 the below library is required if integrating audio player<br/>
 <b>Bootstrap library</b><br/>
