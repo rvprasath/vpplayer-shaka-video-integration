@@ -1672,7 +1672,7 @@ var vmdf = 1;
 			v : "vp-player-about"
 			},{
 			a:"href",
-			v:"https://github.com/rvprasath/vpplayer"
+			v:"https://github.com/rvprasath/vpplayer-shaka-video-integration"
 			},{
 			a:"target",
 			v: "_blank"
