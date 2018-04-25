@@ -68,6 +68,9 @@ so to integrate vpplayer the <code>playerType</code> parameter is required.<br/>
 
 <b>vpplayer script</b><br/>
 audio player
+
+<img src="https://raw.githubusercontent.com/rvprasath/vpplayer-shaka-video-integration/master/screenshots/img3.png"/>
+
 <pre>
 $(document).ready(function(){
 $("#player").vpplayer({
@@ -78,6 +81,11 @@ $("#player").vpplayer({
 <h2></h2>
 
 video player
+
+<img src="https://raw.githubusercontent.com/rvprasath/vpplayer-shaka-video-integration/master/screenshots/img1.png"/>
+
+<img src="https://raw.githubusercontent.com/rvprasath/vpplayer-shaka-video-integration/master/screenshots/img2.png"/>
+
 <pre>
 $(document).ready(function(){
 $("#player").vpplayer({
