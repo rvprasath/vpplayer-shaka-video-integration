@@ -138,7 +138,7 @@ $(document).ready(function(){
 </tr>
 <tr>
   <td><b>streamingType</b></td>
-  <td><b>SHAKA-PLAYER/DASH</b> if this paramete is enabled the <b>manifestUrl</b> parameter must be called to enable dash streaming</td>
+  <td><b>SHAKA-PLAYER/DASH</b> if this parameter is enabled the <b>manifestUrl</b> parameter must be called to enable dash streaming</td>
 </tr>
 <tr>
   <td><b>url</b></td>
