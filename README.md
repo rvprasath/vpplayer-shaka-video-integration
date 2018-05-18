@@ -13,7 +13,7 @@ Thanks for google shaka player.
 
 the below library is required if integrating audio player<br/>
 <b>Bootstrap library</b><br/>
-get bootstrap library from one of the following link <a href="https://www.bootstrapcdn.com/">https://www.bootstrapcdn.com/</a> <b>or</b> <a href="https://getbootstrap.com/docs/3.3/getting-started/">https://getbootstrap.com/docs/3.3/getting-started/</a>
+get bootstrap library from one of the following links <a href="https://www.bootstrapcdn.com/">https://www.bootstrapcdn.com/</a> <b>or</b> <a href="https://getbootstrap.com/docs/3.3/getting-started/">https://getbootstrap.com/docs/3.3/getting-started/</a>
 
 <b>Glyphicon</b><br/>
 download the glyphicon from <a href="https://jquery.com/download/">https://jquery.com/download/</a>
