@@ -19,7 +19,9 @@
 		(function(){
 			if(h.streamingType == undefined){
 				h.quality = undefined;
+				if(h.playerType !="audio"){
 				url();
+				}
 			}else if(h.streamingType.toUpperCase() == "SHAKA-PLAYER/DASH"){
 				if(h.quality == undefined){
 					mu();
@@ -50,7 +52,7 @@
 			}else{
 				if(h.quality.length == obs(h.manifestUrl)){
 					for(var i=0; i<h.quality.length; i++){
-						if(h.manifestUrl[parseInt(h.quality[i])] == undefined){
+						if(h.manifestUrl[kys(parseInt(h.quality[i]))][parseInt(h.quality[i])] == undefined){
 							throw new Error("The given manifest url quality does not match with quality parameters");
 						}
 					}
@@ -326,9 +328,23 @@ h.const = {
 					h.v.vel.setAttribute("src", h.url);
 			}else{
 				if(h.streamingType.toUpperCase() == "SHAKA-PLAYER/DASH"){
-					loadManifest(h.manifestUrl[1080], h.v.vel);
+					loadManifest(h.manifestUrl[kys("AUTO")][1080], h.v.vel);
 				}
 			}	
+		}
+		
+		function kys(hq){
+			if(hq == "AUTO"){
+				return 0;
+			}else{
+			for(k in h.manifestUrl){
+				for(jk in h.manifestUrl[k]){
+					if(jk == hq){
+						return k;
+					}
+				}
+			}
+			}
 		}
 	
 
@@ -854,6 +870,22 @@ h.const = {
 			a : "id",
 			v : "vp-video-player-overlay"
 		},undefined,undefined);
+		
+		h.v.pthplovrl = h.dns("path", [{
+			a : "class",
+			v : "vp-player-play"
+		},{a:"d", v: h.const.ptpl}],undefined,undefined);
+		
+		h.v.pthpaovrl = h.dns("path", [{
+			a : "class",
+			v : "vp-player-pause"
+		},{a:"d", v: h.const.ptpa}],undefined,undefined);
+		
+		h.v.svgplovrl = h.dns("svg", [{a:"height", v:"80px"},
+			{a:"version", v:"1.1"},{a:"viewBox", v:"0 0 33 35"},{a:"width", v:"80px"}],undefined,undefined);
+		
+		h.v.svgpaovrl = h.dns("svg", [{a:"height", v:"80px"},
+			{a:"version", v:"1.1"},{a:"viewBox", v:"0 0 36 36"},{a:"width", v:"80px"}],undefined,undefined);
 
 		h.v.vec = h.d("div", {
 			a : "id",
@@ -1184,7 +1216,14 @@ h.const = {
 		h.v.vpctl.appendChild(h.v.vctlm);
 		h.v.vpctl.appendChild(h.v.vppls);
 		h.v.vpctl.appendChild(h.v.vpplspc);
-
+		
+		h.v.svgplovrl.appendChild(h.v.pthplovrl);
+		h.v.svgpaovrl.appendChild(h.v.pthpaovrl);
+		
+		
+		h.v.ol.appendChild(h.v.svgplovrl);
+		h.v.ol.appendChild(h.v.svgpaovrl);
+		
 		h.v.pc.appendChild(h.v.gt);
 		h.v.pc.appendChild(h.v.ol);
 		h.v.pc.appendChild(h.v.vec);
@@ -1409,10 +1448,26 @@ h.const = {
 				h.v.vppsf.style.bottom = Math.abs(h.v.pc.offsetHeight-$(this).offset().top+30)+"px";
 				}
 		}
+		h.v.lftPre = ((h.thumbnail.width/2)-(parseInt($(h.v.vppsf).css("border-width"))*2))-((parseInt($(h.v.vpttltp).css("width"))+parseInt($(h.v.vpttltp).css("border-width")))/2);
+		h.v.lftPost = ((h.thumbnail.width/2)-(parseInt($(h.v.vppsf).css("border-width"))*2))-((parseInt($(h.v.vpttltp).css("width"))+parseInt($(h.v.vpttltp).css("border-width")))/2);
+		h.v.ctwdth = $(h.v.pc).outerWidth()-$(h.v.vppsf).outerWidth();
+		var lft = e.pageX-(Math.abs(12-(h.thumbnail.width)/2))-$(this).offset().left;
+		var tlft = e.pageX-10-$(this).offset().left;
+		if(lft < 0){
+			tlft = h.v.lftPre;
+			lft = 0;
+		}else{
+			if(lft > h.v.ctwdth){
+				lft = h.v.ctwdth;
+				tlft = (h.v.ctwdth+h.v.lftPost);
+			}else{
+				h.v.lftPre = tlft;
+			}
+		}
 		
-		h.v.vpttltp.style.left = e.pageX-10-$(this).offset().left+"px";
+		h.v.vpttltp.style.left = tlft+"px";
 		if(h.thumbnail != undefined){
-		h.v.vppsf.style.left = e.pageX-(Math.abs(12-(h.thumbnail.width)/2))-$(this).offset().left+"px";
+			h.v.vppsf.style.left = lft+"px";
 		}
 		h.v.vpttltp.innerText = sm(sktmtlp(e, $(this)));
 
@@ -1441,9 +1496,23 @@ h.const = {
 				h.v.vppsf.style.bottom = Math.abs(h.v.pc.offsetHeight-$(this).offset().top+30)+"px";
 			}
 		}
-		h.v.vpttltp.style.left = e.pageX-10-$(this).offset().left+"px";
+		h.v.ctwdth = $(h.v.pc).outerWidth()-$(h.v.vppsf).outerWidth();
+		var lft = e.pageX-(Math.abs(12-(h.thumbnail.width)/2))-$(this).offset().left;
+		var tlft = e.pageX-10-$(this).offset().left;
+		if(lft < 0){
+			tlft = h.v.lftPre;
+			lft = 0;
+		}else{
+			if(lft > h.v.ctwdth){
+				lft = h.v.ctwdth;
+				tlft = (h.v.ctwdth+h.v.lftPost);
+			}else{
+			h.v.lftPre = tlft;
+			}
+		}
+		h.v.vpttltp.style.left = tlft+"px";
 		if(h.thumbnail != undefined){
-		h.v.vppsf.style.left = e.pageX-(Math.abs(12-(h.thumbnail.width)/2))-$(this).offset().left+"px";
+			h.v.vppsf.style.left = lft+"px";
 		}
 
 		h.v.vpttltp.innerText = sm(sktmtlp(e, $(this)));
@@ -1621,7 +1690,7 @@ var vmdf = 1;
 		}
 		this.className = "vp-video-player-quality-popup optionHover";
 		h.qltcrtm = h.v.vel.currentTime;
-		loadManifest(h.manifestUrl[parseFloat(this.getAttribute("id"))], h.v.vel);
+		loadManifest(h.manifestUrl[kys(parseFloat(this.getAttribute("id")))][parseFloat(this.getAttribute("id"))], h.v.vel);
 		if(h.fsf == 1){
 		h.fsf = 0;
 		}else{
@@ -1681,6 +1750,8 @@ var vmdf = 1;
 			h.v.pc.appendChild(h.ab);
 			var t = (parseInt($(h.v.pc).parents().css("margin-top")) == 0)?(parseInt($(h.v.pc).parents().css("padding-top")) == 0)?parseInt($(h.v.pc).parents().offset().top):parseInt($(h.v.pc).parents().css("padding-top"))+parseInt($(h.v.pc).parents().offset().top):parseInt($(h.v.pc).offset().top);
 			var l = e.pageX-$(this).offset().left
+			if(h.fsf == 1)
+			t = 1;
 			h.ab.style.top = (e.pageY-t-1)+"px";
 			h.ab.style.left = l+"px";
 
